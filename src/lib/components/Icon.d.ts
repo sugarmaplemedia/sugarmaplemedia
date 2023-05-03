@@ -1,0 +1,1 @@
+export type Name = "brackets"|"brush"|"chatbubbles"|"cube"|"desktop"|"hammer"|"image"
