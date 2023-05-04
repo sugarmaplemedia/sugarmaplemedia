@@ -99,7 +99,7 @@ const handleKeydown = (e: KeyboardEvent, f: () => void) => {
     <section id="services" class="px-4 xs:px-6 flex flex-col items-center gap-8">
         <Header>Services</Header>
         
-        <main class="pl-4 xs:pl-0 flex flex-col md:grid md:grid-cols-2 items-center md:items-stretch gap-8">
+        <main class="max-w-4xl pl-4 xs:pl-0 flex flex-col md:grid md:grid-cols-2 items-center md:items-stretch gap-8">
             <!-- Model object -->
             {#each services as service}
             <article class="max-w-md pl-12 xs:pl-16 pr-4 py-4 relative border-2 border-gray rounded-[0_32px_0_32px]">
@@ -120,17 +120,16 @@ const handleKeydown = (e: KeyboardEvent, f: () => void) => {
         </footer>
     </section>
 
-    <section id="pricing" class="flex flex-col gap-6 px-2">
+    <section id="pricing" class="flex flex-col items-center gap-6 px-2">
         <Header>Pricing</Header>
-        <p class="px-4 text-center">Our pricing structures are built around flexibility to accompany any business’s budget and maximize each dollar spent.</p>
-        <main class="px-2 xs:px-6 flex flex-col md:grid md:grid-cols-2 items-center md:items-stretch gap-8">
+        <p class="max-w-lg px-4 text-center">Our pricing structures are built around flexibility to accompany any business's budget and maximize each dollar spent.</p>
+        <main class="px-2 xs:px-6 flex flex-col items-center gap-8">
             <!-- Toggle -->
-            <!-- Two text boxes inside a flex row container with a before pseudo for bg color -->
             <button
                 on:click={handleToggle}
                 on:keydown={(e) => handleKeydown(e, handleToggle)}
                 class="
-                    px-10 py-4 relative flex border-2 border-gray rounded-full
+                    px-10 py-4 relative flex md:hidden border-2 border-gray rounded-full
                     
                     before:w-32 before:h-12
                     before:transition-all
@@ -141,35 +140,114 @@ const handleKeydown = (e: KeyboardEvent, f: () => void) => {
             </button>
 
             <!-- Pricing container -->
-            <article class="max-w-md pl-12 xs:pl-16 pr-4 py-4 relative border-2 border-gray rounded-[0_32px_0_32px]">
+            <div class="w-[200vw] md:w-full max-w-4xl gap-8 px-4 md:px-0 flex {toggleLeft ? 'translate-x-1/4' : '-translate-x-1/4'} md:translate-x-0 transition-all">
+                <article class="w-full ml-4 md:ml-0 pl-12 xs:pl-16 pr-4 py-4 relative border-2 border-gray rounded-[0_32px_0_32px]">
+                    <div class="w-fit p-4 absolute -left-6 xs:-left-4 -top-6 xs:-top-4 bg-black rounded-full">
+                        <Icon name="cube" class="w-8 h-8 fill-white"/>
+                    </div>
+                    <div class="h-full flex flex-col gap-3">
+                        <h3>Project-based</h3>
+                        <p>You've got a great idea. We can bring out its greatest potential.</p>
+                        <section class="flex flex-col gap-1">
+                            <h4 class="text-gray-dark">Start with a free quote.</h4>
+                            <p>We'll have a quick concept meeting to discuss possibilities and what we need to do to make it happen.</p>
+                        </section>
+                        <section class="flex flex-col gap-1">
+                            <h4 class="text-gray-dark">Put down a deposit.</h4>
+                            <p>We'll book meetings to plan project scope (features, content, commitments, deadlines). Don't worry, your deposit goes toward initial contract payments.</p>
+                        </section>
+                        <section class="flex flex-col gap-1">
+                            <h4 class="text-gray-dark">Establish the agreement.</h4>
+                            <p>We'll draft a contract and begin project development. Payment can be made <span class="font-bold">upfront</span> or over several <span class="font-bold">milestones</span>, with the first already being completed.</p>
+                        </section>
+                        <section class="flex flex-col gap-1">
+                            <h4 class="font-bold text-gray-dark">Launch your project!</h4>
+                            <p>After the project is complete or has reached a suitable stage, we'll launch it for public use.</p>
+                        </section>
+                        <section class="flex flex-col gap-1">
+                            <h4 class="text-gray-dark">Get free support.</h4>
+                            <p>Afterward, we guarantee a month of free services, along with an additional month upon signing a General Services Agreement.</p>
+                        </section>
+                        <Button icon="cube">Get a quote</Button>
+                    </div>
+                </article>
+                <article class="h-fit w-full ml-4 md:ml-0 pl-12 xs:pl-16 pr-4 py-4 relative border-2 border-gray rounded-[0_32px_0_32px]">
+                    <div class="w-fit p-4 absolute -left-6 xs:-left-4 -top-6 xs:-top-4 bg-black rounded-full">
+                        <Icon name="hammer" class="w-8 h-8 fill-white"/>
+                    </div>
+                    <div class="h-full flex flex-col gap-3">
+                        <h3>Services-based</h3>
+                        <p>You got something that needs continuous service. We've got it covered.</p>
+                        <section class="flex flex-col gap-1">
+                            <h4 class="text-gray-dark">Start with a free quote.</h4>
+                            <p>We'll have a quick concept meeting to discuss what services are needed and why.</p>
+                        </section>
+                        <section class="flex flex-col gap-1">
+                            <h4 class="text-gray-dark">Explore your needs.</h4>
+                            <p>We'll spend a month working with you to estimate what you need, no upfront costs necessary.</p>
+                        </section>
+                        <section class="flex flex-col gap-1">
+                            <h4 class="font-bold text-gray-dark">Establish the contract!</h4>
+                            <p>After a month of discovery and the first bill is paid, we'll make a contract for a monthly retainer. You have the option to pay <span class="font-bold">monthly</span>, <span class="font-bold">quarterly</span>, or <span class="font-bold">yearly</span> increments. Any work past the rate is charged at the start of the next month.</p>
+                        </section>
+                        <Button icon="hammer">Get a quote</Button>
+                    </div>
+                </article>
+            </div>
+        </main>
+    </section>
+
+    <section class="flex flex-col items-center gap-4">
+        <header>
+            <Header>Testimonials</Header>
+        </header>
+        <main class="w-full max-w-2xl px-4">
+            <article class="ml-4 px-4 py-4 relative border-2 border-gray-light bg-black rounded-[0_32px_0_32px] text-white">
                 <div class="w-fit p-4 absolute -left-6 xs:-left-4 -top-6 xs:-top-4 bg-black rounded-full">
-                    <Icon name="hammer" class="w-8 h-8 fill-white"/>
+                    <Icon name="chatmessage" class="w-8 h-8 fill-white"/>
                 </div>
-                <div class="h-full flex flex-col gap-3">
-                    <h3>Project-based</h3>
-                    <p>You've got a great idea. We can bring out its greatest potential.</p>
-                    <section class="flex flex-col gap-1">
-                        <h4>Start with a free quote.</h4>
-                        <p>A quick concept meeting to discuss possibilities and their requirements.</p>
-                    </section>
-                    <section class="flex flex-col gap-1">
-                        <h4>Put down a deposit.</h4>
-                        <p>We'll book meetings to plan project scope (features, content, commitments, deadlines). Don't worry, your deposit goes toward initial contract payments.</p>
-                    </section>
-                    <section class="flex flex-col gap-1">
-                        <h4>Establish the agreement.</h4>
-                        <p>We'll draft a contract and begin project development. Payment can be made <span class="font-bold">upfront</span> or over several <span class="font-bold">milestones</span>, with the first already being completed.</p>
-                    </section>
-                    <section class="flex flex-col gap-1">
-                        <h4 class="font-bold">Launch your project!</h4>
-                        <p>After the project is complete or has reached a suitable stage, we'll launch it for public use.</p>
-                    </section>
-                    <section class="flex flex-col gap-1">
-                        <h4>Get free support.</h4>
-                        <p>Afterward, we guarantee a month of free services, along with an additional month upon signing a General Services Agreement.</p>
-                    </section>
+                <div class="h-full flex flex-col sm:flex-row items-center gap-4">
+                    <div class="w-32 h-32 sm:mx-8 flex justify-center items-center bg-gray-light rounded-full">
+                        <Icon name="person" class="w-12 h-12" />
+                    </div>
+                    <div class="flex flex-col items-center sm:items-start gap-4">
+                        <div class="flex flex-col items-center sm:items-start gap-1">
+                            <h3>Chris Smith</h3>
+                            <p class="text-center sm:text-left flex flex-col">
+                                <span>U.P. Lions Serve: Childhood Cancer</span>
+                                <span class="uppercase font-bold">Director</span>
+                            </p>
+                        </div>
+                        <q class="mb-2">This looks great!</q>
+                        <Button href="https://uplionsserve.org/childhood-cancer" target="_blank">Visit website</Button>
+                    </div>
                 </div>
             </article>
+        </main>
+    </section>
+
+    <section class="flex flex-col items-center gap-8">
+        <header>
+            <Header>Looking for more?</Header>
+        </header>
+        <Button href="https://harrisonbouche.com/portfolio" target="_blank">Peruse our portfolio</Button>
+    </section>
+
+    <section class="flex flex-col items-center gap-4">
+        <header>
+            <Header>About Us</Header>
+        </header>
+        <main class="max-w-4xl px-4 xs:px-8 flex flex-col md:flex-row items-center md:gap-8 lg:gap-16">
+            <img 
+                src="/images/about.png" 
+                alt="A collage consisting of Harrison Bouche, the Sugar Maple Media logo, and a U.P. river."
+                class="max-w-xs px-8 xs:px-4" />
+            <div class="flex flex-col gap-4 pt-8">
+                <p>Thanks for taking the time to check out my website. If we haven't already been introduced, my name is <span class="font-bold">Harrison Bouche</span>. I am a web developer and designer from the Upper Peninsula of Michigan.</p>
+                <p>If you catch me outside of work, you'll likely find me singing, mountain biking, sipping coffee, or listening to podcasts somewhere in the rolling hills of Marquette.</p>
+                <p>I am a senior pursuing two majors at Northern Michigan University: Communication Studies, and Mobile and Web Application Development.</p>
+                <p>All of the skills I have learned combine in my business, Sugar Maple Media, where I provide digital development and design services with a focus on quality consultation.</p>
+            </div>
         </main>
     </section>
 </main>
