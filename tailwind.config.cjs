@@ -8,6 +8,7 @@ const config = {
             'gray' : '#676767',
             'gray-light' : '#DDDDDD',
             'gray-dark' : '#303030',
+            'red': '#F00'
         },
         fontFamily: {
             'sans': ['Inter', 'sans-serif'],
