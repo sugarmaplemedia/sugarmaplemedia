@@ -21,8 +21,6 @@ $: if ($page.status == 400) {
 }
 
 export let form: ActionData
-console.log(form)
-
 
 let scrollHeight: number = 0
 
@@ -86,7 +84,7 @@ const handleKeydown = (e: KeyboardEvent, f: () => void) => {
         <p class="xl:max-w-md">
             We are here to serve your small business with digital development that sticks. Keep reading to see how we're building better businesses in Marquette, MI.
         </p>
-        <Button href="#contact" icon="chatbubbles">Reach out</Button>
+        <Button href="#footer" icon="chatbubbles">Reach out</Button>
     </div>
     <!-- Continue (Mobile Only) -->
     <!-- TODO: Add touch event to scroll to first #anchor -->
@@ -106,15 +104,16 @@ const handleKeydown = (e: KeyboardEvent, f: () => void) => {
             <li class="hover:translate-y-0.5 hover:scale-[0.98] transition-all"><a class="block px-4 lg:px-6 pt-8 pb-4 select-none" href="#top">Home</a></li>
             <li class="hover:translate-y-0.5 hover:scale-[0.98] transition-all"><a class="block px-4 lg:px-6 pt-8 pb-4 select-none" href="#services">Services</a></li>
             <li class="hover:translate-y-0.5 hover:scale-[0.98] transition-all"><a class="block px-4 lg:px-6 pt-8 pb-4 select-none" href="#pricing">Pricing</a></li>
-            <li class="hover:translate-y-0.5 hover:scale-[0.98] transition-all"><a class="block px-4 lg:px-6 pt-8 pb-4 select-none" href="/portfolio">Portfolio</a></li>
+            <li class="hover:translate-y-0.5 hover:scale-[0.98] transition-all"><a class="block px-4 lg:px-6 pt-8 pb-4 select-none" href="https://harrisonbouche.com/portfolio">Portfolio</a></li>
+            <li class="hover:translate-y-0.5 hover:scale-[0.98] transition-all"><a class="block px-4 lg:px-6 pt-8 pb-4 select-none" href="#footer">Contact</a></li>
         </menu>
         <hr class="w-full max-w-md border-gray-light drop-shadow-md"/>
     </nav>
 </header>
 
 <!-- Main content -->
-<main class="flex flex-col gap-16 pb-16 overflow-x-hidden">
-    <section id="services" class="px-4 xs:px-6 flex flex-col items-center gap-8 scroll-m-8">
+<main class="flex flex-col gap-48 pb-48 overflow-x-hidden">
+    <section id="services" class="px-4 xs:px-6 flex flex-col items-center gap-8 scroll-m-8 sm:scroll-m-24">
         <Header>Services</Header> 
         
         <main class="max-w-4xl pl-4 xs:pl-0 flex flex-col md:grid md:grid-cols-2 items-center md:items-stretch gap-8">
@@ -127,18 +126,18 @@ const handleKeydown = (e: KeyboardEvent, f: () => void) => {
                 <div class="h-full flex flex-col gap-2">
                     <h3>{service.title}</h3>
                     <p class="mb-2 grow">{service.description}</p>
-                    <Button>{service.buttonText}</Button>
+                    <!-- <Button>{service.buttonText}</Button> -->
                 </div>
             </article>
             {/each}
         </main>
         <footer class="flex flex-col items-center gap-4">
             <p class="max-w-[21rem] text-center text-sm text-gray">Ready to see how we can help? Reach out today to explore the possibilities (and get a free quote).</p>
-            <Button href="#contact" icon="chatbubbles">Talk with us</Button>
+            <Button href="#footer" icon="chatbubbles">Talk with us</Button>
         </footer>
     </section>
 
-    <section id="pricing" class="flex flex-col items-center gap-6 px-2">
+    <section id="pricing" class="flex flex-col items-center gap-6 px-2 scroll-m-8 sm:scroll-m-24">
         <Header>Pricing</Header>
         <p class="max-w-lg px-4 text-center">Our pricing structures are built around flexibility to accompany any business's budget and maximize each dollar spent.</p>
         <main class="px-2 xs:px-6 flex flex-col items-center gap-8">
@@ -186,7 +185,7 @@ const handleKeydown = (e: KeyboardEvent, f: () => void) => {
                             <h4 class="text-gray-dark">Get free support.</h4>
                             <p>Afterward, we guarantee a month of free services, along with an additional month upon signing a General Services Agreement.</p>
                         </section>
-                        <Button icon="cube">Get a quote</Button>
+                        <Button href="#footer" icon="cube">Get a quote</Button>
                     </div>
                 </article>
                 <article class="h-fit w-full ml-4 md:ml-0 pl-12 xs:pl-16 pr-4 py-4 relative border-2 border-gray rounded-[0_32px_0_32px]">
@@ -208,7 +207,7 @@ const handleKeydown = (e: KeyboardEvent, f: () => void) => {
                             <h4 class="font-bold text-gray-dark">Establish the contract!</h4>
                             <p>After a month of discovery and the first bill is paid, we'll make a contract for a monthly retainer. You have the option to pay <span class="font-bold">monthly</span>, <span class="font-bold">quarterly</span>, or <span class="font-bold">yearly</span> increments. Any work past the rate is charged at the start of the next month.</p>
                         </section>
-                        <Button icon="hammer">Get a quote</Button>
+                        <Button href="#footer" icon="hammer">Get a quote</Button>
                     </div>
                 </article>
             </div>
@@ -237,7 +236,7 @@ const handleKeydown = (e: KeyboardEvent, f: () => void) => {
                             </p>
                         </div>
                         <q class="mb-2">This looks great!</q>
-                        <Button href="https://uplionsserve.org/childhood-cancer" target="_blank">Visit website</Button>
+                        <Button darkMode href="https://uplionsserve.org/childhood-cancer" target="_blank">Visit website</Button>
                     </div>
                 </div>
             </article>
@@ -248,7 +247,7 @@ const handleKeydown = (e: KeyboardEvent, f: () => void) => {
         <header>
             <Header>Looking for more?</Header>
         </header>
-        <Button href="https://harrisonbouche.com/portfolio" target="_blank">Peruse our portfolio</Button>
+        <Button href="https://harrisonbouche.com/portfolio" target="_blank">Peruse the portfolio</Button>
     </section>
 
     <section class="flex flex-col items-center gap-4">
@@ -270,7 +269,7 @@ const handleKeydown = (e: KeyboardEvent, f: () => void) => {
     </section>
 </main>
 
-<footer id="footer" class="pb-12">
+<footer id="footer" class="pb-12 scroll-m-12 sm:scroll-m-24">
     <header class="pb-8">
         <Header>Contact Us</Header>
     </header>
@@ -291,7 +290,7 @@ const handleKeydown = (e: KeyboardEvent, f: () => void) => {
                     <input
                         id="contact_name" name="name"
                         type="text" required
-                        class="px-4 py-2 rounded-full bg-white border-2 border-gray-light focus:border-gray focus:outline outline-gray focus:translate-y-0.5 transition-all" />
+                        class="px-4 py-2 rounded-full bg-white border-2 border-gray-light focus:border-gray focus:outline outline-gray transition-all" />
                     {#if form?.name == true}
                     <div class="inline-block mt-1 bg-gray-light rounded-xl overflow-hidden">
                         <p class="px-4 py-3 text-xs text-gray-dark font-semibold">Your name is required.</p>
@@ -306,7 +305,7 @@ const handleKeydown = (e: KeyboardEvent, f: () => void) => {
                     <input 
                         id="contact_email" name="email"
                         type="email" required
-                        class="px-4 py-2 rounded-full bg-white border-2 border-gray-light focus:border-gray focus:outline outline-gray focus:translate-y-0.5 transition-all" />
+                        class="px-4 py-2 rounded-full bg-white border-2 border-gray-light focus:border-gray focus:outline outline-gray transition-all" />
                     {#if form?.email == true}
                     <div class="inline-block mt-1 bg-gray-light rounded-xl overflow-hidden">
                         <p class="px-4 py-3 text-xs text-gray-dark font-semibold">Your email is required.</p>
@@ -322,7 +321,7 @@ const handleKeydown = (e: KeyboardEvent, f: () => void) => {
                     <fieldset tabindex="0"
                         on:keydown={(e) => handleKeydown(e, handleToggle)}
                         class="
-                            h-[2.75rem] py-4 relative flex justify-around border-2 border-gray-light focus-within:border-gray focus-within:outline focus-within:outline-gray rounded-full focus-within:translate-y-0.5 transition-all cursor-pointer
+                            h-[2.75rem] py-4 relative flex justify-around border-2 border-gray-light focus-within:border-gray focus-within:outline focus-within:outline-gray rounded-full transition-all cursor-pointer
                             
                             before:w-1/2 before:h-[2.05rem]
                             before:transition-all
@@ -335,7 +334,7 @@ const handleKeydown = (e: KeyboardEvent, f: () => void) => {
                                 id="contact_pricing_project" name="pricing" 
                                 type="radio" value="project" checked
                                 class="block w-full opacity-0 pointer-events-none select-none relative z-10 cursor-pointer" />
-                            <label for="contact_pricing_project" class="block -translate-y-[1.35rem] relative z-0 text-center cursor-pointer">Project</label>
+                            <label for="contact_pricing_project" class="block -translate-y-[1.35rem] relative z-0 text-center cursor-pointer select-none">Project</label>
                         </div>
 
                         <div class="w-full text-left {!toggleLeft && "text-white font-semibold"} transition-all">
@@ -344,7 +343,7 @@ const handleKeydown = (e: KeyboardEvent, f: () => void) => {
                                 id="contact_pricing_general_services" name="pricing" 
                                 type="radio" value="general_services"
                                 class="block w-full opacity-0 pointer-events-none select-none relative z-10 cursor-pointer" />
-                            <label for="contact_pricing_general_services" class="block -translate-y-[1.35rem] relative z-0 text-center cursor-pointer">Services</label>
+                            <label for="contact_pricing_general_services" class="block -translate-y-[1.35rem] relative z-0 text-center cursor-pointer select-none">Services</label>
                         </div>
                     </fieldset>
                 </div>
@@ -352,24 +351,24 @@ const handleKeydown = (e: KeyboardEvent, f: () => void) => {
                 <!-- Services -->
                 <div class="flex flex-col gap-1.5">
                     <legend class="text-xs uppercase tracking-wider font-semibold">What services do you need?*</legend>
-                    <fieldset class="px-8 border-2 border-gray-light focus-within:border-gray focus-within:outline focus-within:outline-gray focus-within:translate-y-0.5 transition-all rounded-[1.65rem]">
+                    <fieldset class="px-8 border-2 border-gray-light focus-within:border-gray focus-within:outline focus-within:outline-gray transition-all rounded-[1.65rem]">
                         <div class="pt-2 flex gap-2 items-center checked:bg-gray-light rounded-full cursor-pointer">
-                            <input type="checkbox" id="contact_services_web_development" name="services" value="web_development" class="py-4 cursor-pointer" />
+                            <input type="checkbox" id="contact_services_web_development" name="services_1" value="web_development" class="py-4 cursor-pointer" />
                             <label for="contact_services_web_development" class="py-4 text-gray-dark font-medium cursor-pointer grow select-none">Web Development</label>
                         </div>
                         <hr class="border-gray-light" />
                         <div class="flex gap-2 items-center checked:bg-gray-light rounded-full cursor-pointer">
-                            <input type="checkbox" id="contact_services_web_design" name="services" value="web_design" class="py-4 cursor-pointer" />
+                            <input type="checkbox" id="contact_services_web_design" name="services_2" value="web_design" class="py-4 cursor-pointer" />
                             <label for="contact_services_web_design" class="py-4 text-gray-dark font-medium cursor-pointer grow select-none">Web Design</label>
                         </div>
                         <hr class="border-gray-light" />
                         <div class="flex gap-2 items-center checked:bg-gray-light rounded-full cursor-pointer">
-                            <input type="checkbox" id="contact_services_graphic_design" name="services" value="graphic_design" class="py-4 cursor-pointer" />
+                            <input type="checkbox" id="contact_services_graphic_design" name="services_3" value="graphic_design" class="py-4 cursor-pointer" />
                             <label for="contact_services_graphic_design" class="py-4 text-gray-dark font-medium cursor-pointer grow select-none">Graphic Design</label>
                         </div>
                         <hr class="border-gray-light" />
                         <div class="pb-2 flex gap-2 items-center checked:bg-gray-light rounded-full cursor-pointer">
-                            <input type="checkbox" id="contact_services_content_creation" name="services" value="content_creation" class="py-4 cursor-pointer" />
+                            <input type="checkbox" id="contact_services_content_creation" name="services_4" value="content_creation" class="py-4 cursor-pointer" />
                             <label for="contact_services_content_creation" class="py-4 text-gray-dark font-medium cursor-pointer grow select-none">Content Creation</label>
                         </div>
                     </fieldset>
@@ -388,7 +387,7 @@ const handleKeydown = (e: KeyboardEvent, f: () => void) => {
                         id="message" name="message"
                         rows="8" cols="8"
                         placeholder="Put any additional information here."
-                        class="p-4 border-2 border-gray-light rounded-[1.65rem] focus:outline focus:outline-gray focus:border-gray focus:translate-y-0.5 transition-all"></textarea>
+                        class="p-4 border-2 border-gray-light rounded-[1.65rem] focus:outline focus:outline-gray focus:border-gray transition-all"></textarea>
                 </div>
 
                 <!-- Submit -->
