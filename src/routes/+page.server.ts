@@ -49,17 +49,11 @@ export const actions = {
                 ${message}`,
         }
 
-        console.log("The Message being sent:", msg)
-        console.log("API Key:", SENDGRID_API_KEY)
-        
-
-        sgMail.send(msg)
-            .then(() => {
-                console.log('Email sent')
-            })
+        await sgMail.send(msg)
             .catch((error) => {
                 console.error(error)
             })
+        console.log("Message Sent")
 
         return { success: true }
     }
