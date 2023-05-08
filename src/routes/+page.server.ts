@@ -49,6 +49,9 @@ export const actions = {
                 ${message}`,
         }
 
+        console.log("The Message being sent:", msg)
+        
+
         sgMail.send(msg)
             .then(() => {
                 console.log('Email sent')
