@@ -50,6 +50,7 @@ export const actions = {
         }
 
         console.log("The Message being sent:", msg)
+        console.log("API Key:", SENDGRID_API_KEY)
         
 
         sgMail.send(msg)
