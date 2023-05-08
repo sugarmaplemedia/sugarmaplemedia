@@ -2,7 +2,7 @@ import type { Actions } from './$types';
 import { fail } from '@sveltejs/kit';
 
 import { SENDGRID_API_KEY } from '$env/static/private'
-import * as sgMail from '@sendgrid/mail'
+import sgMail from '@sendgrid/mail'
 sgMail.setApiKey(SENDGRID_API_KEY)
 
 type Missing = {
