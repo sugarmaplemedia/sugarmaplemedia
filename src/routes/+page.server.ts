@@ -1,60 +1,59 @@
-import type { Actions } from './$types';
-import { fail } from '@sveltejs/kit';
+import type { Actions } from "./$types"
+import { fail } from "@sveltejs/kit"
 
-import { SENDGRID_API_KEY } from '$env/static/private'
-import sgMail from '@sendgrid/mail'
+import { SENDGRID_API_KEY } from "$env/static/private"
+import sgMail from "@sendgrid/mail"
 sgMail.setApiKey(SENDGRID_API_KEY)
 
 type Missing = {
-    name?: boolean,
-    email?: boolean,
-    services?: boolean
+	name?: boolean
+	email?: boolean
+	services?: boolean
 }
 
 export const actions = {
-    default: async ({ request }) => {
-        const data = await request.formData()
-        
-        let missing: Missing = {}
+	default: async ({ request }) => {
+		const data = await request.formData()
 
-        const name = data.get('name')
-        if (name?.toString().length == 0) missing.name = true
+		let missing: Missing = {}
 
-        const email = data.get('email')
-        if (email?.toString().length == 0) missing.email = true
+		const name = data.get("name")
+		if (name?.toString().length == 0) missing.name = true
 
-        let services: Array<string> = []
-        for (let i = 0; i < 5; i++) {
-            const service = data.get(`services_${i}`)?.toString()
-            if (service && service?.length > 0) services.push(service)
-        }
-        if (services.length == 0) missing.services = true
+		const email = data.get("email")
+		if (email?.toString().length == 0) missing.email = true
 
-        let message = data.get('message')?.toString()
+		let services: Array<string> = []
+		for (let i = 0; i < 5; i++) {
+			const service = data.get(`services_${i}`)?.toString()
+			if (service && service?.length > 0) services.push(service)
+		}
+		if (services.length == 0) missing.services = true
 
-        if (Object.keys(missing).length > 0) {
-            return fail(400, missing)
-        }        
+		let message = data.get("message")?.toString()
 
-        const msg = {
-            to: 'harrison@sm.media', // Change to your recipient
-            from: 'noreply@sm.media', // Change to your verified sender
-            subject: 'New Contact Form Submission',
-            html: `
+		if (Object.keys(missing).length > 0) {
+			return fail(400, missing)
+		}
+
+		const msg = {
+			to: "harrison@sm.media", // Change to your recipient
+			from: "noreply@sm.media", // Change to your verified sender
+			subject: "New Contact Form Submission",
+			html: `
                 <b>Name:</b> ${name}<br>
                 <b>Email:</b> ${email}<br>
                 <b>Services:</b> ${services}<br>
                 <br>
                 <b>Message:</b><br>
-                ${message}`,
-        }
+                ${message}`
+		}
 
-        await sgMail.send(msg)
-            .catch((error) => {
-                console.error(error)
-            })
-        console.log("Message Sent")
+		await sgMail.send(msg).catch((error) => {
+			console.error(error)
+		})
+		console.log("Message Sent")
 
-        return { success: true }
-    }
-} satisfies Actions;
+		return { success: true }
+	}
+} satisfies Actions
