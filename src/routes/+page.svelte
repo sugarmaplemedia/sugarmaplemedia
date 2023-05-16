@@ -4,6 +4,18 @@ import Pricing from "./Pricing.svelte";
 import Testimonials from "./Testimonials.svelte";
 import LookingForMore from "./LookingForMore.svelte";
 import AboutUs from "./AboutUs.svelte";
+import ContactUs from "./ContactUs.svelte";
+
+import type { ActionData } from './$types'
+import { page } from "$app/stores"
+
+export let form: ActionData
+$: if ($page.status == 400) {
+    window.scrollTo({
+        behavior: 'smooth',
+        top: document.getElementById("footer")!.getBoundingClientRect().top + window.scrollY - 50
+    })
+}
 </script>
 
 <svelte:head>
@@ -16,3 +28,4 @@ import AboutUs from "./AboutUs.svelte";
 <Testimonials />
 <LookingForMore />
 <AboutUs />
+<ContactUs {form} status={$page.status} />

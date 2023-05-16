@@ -1,10 +1,10 @@
 <script lang="ts">
-import Header from "./section/Header.svelte"
-import Button from "./Button.svelte";
+import Header from "../lib/components/section/Header.svelte"
+import Button from "../lib/components/Button.svelte";
 
 import { enhance } from "$app/forms";
 import { fly } from "svelte/transition";
-import type { ActionData } from "../../routes/$types"
+import type { ActionData } from "./$types"
 
 export let form: ActionData
 export let status: number
