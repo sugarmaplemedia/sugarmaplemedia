@@ -1,1 +1,10 @@
-export type Name = "brackets"|"brush"|"chatbubbles"|"chatmessage"|"cube"|"desktop"|"hammer"|"image"|"person"
+export type Name =
+	| "brackets"
+	| "brush"
+	| "chatbubbles"
+	| "chatmessage"
+	| "cube"
+	| "desktop"
+	| "hammer"
+	| "image"
+	| "person"
